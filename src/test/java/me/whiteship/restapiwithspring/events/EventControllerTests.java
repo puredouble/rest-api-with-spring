@@ -34,21 +34,21 @@ public class EventControllerTests {
     @Autowired
     ObjectMapper objectMapper;
 
-    @Test
-    @TestDescription("정상적으로 이벤트를 생성하는 테스트")
-    public void createEvent() throws Exception {
-        EventDto event = EventDto.builder()
-                .name("Spring")
-                .description("REST API Development with Spring")
-                .beginEnrollmentDateTime(LocalDateTime.of(2019, 5, 1, 11, 10, 0))
-                .closeEnrollmentDateTime(LocalDateTime.of(2019, 6, 1, 11, 11, 0))
-                .beginEventDateTime(LocalDateTime.of(2019, 7, 1, 10, 0, 0))
-                .endEventDateTime(LocalDateTime.of(2019, 7, 2, 10, 0, 0))
-                .basePrice(100)
-                .maxPrice(200)
-                .limitOfEnrollment(100)
-                .location("강남역 D2 스타텁 팩토리")
-                .build();
+        @Test
+        @TestDescription("정상적으로 이벤트를 생성하는 테스트")
+        public void createEvent() throws Exception {
+            EventDto event = EventDto.builder()
+                    .name("Spring")
+                    .description("REST API Development with Spring")
+                    .beginEnrollmentDateTime(LocalDateTime.of(2019, 5, 1, 11, 10, 0))
+                    .closeEnrollmentDateTime(LocalDateTime.of(2019, 6, 1, 11, 11, 0))
+                    .beginEventDateTime(LocalDateTime.of(2019, 7, 1, 10, 0, 0))
+                    .endEventDateTime(LocalDateTime.of(2019, 7, 2, 10, 0, 0))
+                    .basePrice(100)
+                    .maxPrice(200)
+                    .limitOfEnrollment(100)
+                    .location("강남역 D2 스타텁 팩토리")
+                    .build();
 
         mockMvc.perform(post("/api/events/")
                     .contentType(MediaType.APPLICATION_JSON_UTF8)
